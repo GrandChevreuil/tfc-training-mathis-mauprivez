@@ -197,21 +197,28 @@ aws-oidc
 
 ### Ajoutez ces variables d’environnement :
 
-#### 📌 `AWS_ROLE_ARN`
+#### 📌 `TFC_AWS_PROVIDER_AUTH`
 ```
-Key: AWS_ROLE_ARN
+Key: TFC_AWS_PROVIDER_AUTH
+Value: true
+Category: environment variable
+Sensitive: off
+```
+
+> ⚠️ C'est cette variable qui déclenche le mécanisme **Dynamic Provider Credentials** :
+> TFC génère un JWT OIDC et l'injecte automatiquement dans l'agent d'exécution.
+> Sans elle, le fichier `/tmp/web-identity-token` n'est jamais écrit et l'auth AWS échoue.
+
+#### 📌 `TFC_AWS_RUN_ROLE_ARN`
+```
+Key: TFC_AWS_RUN_ROLE_ARN
 Value: arn:aws:iam::<ACCOUNT_ID>:role/<NOM_ROLE>
 Category: environment variable
 Sensitive: off
 ```
 
-#### 📌 `AWS_WEB_IDENTITY_TOKEN_FILE`
-```
-Key: AWS_WEB_IDENTITY_TOKEN_FILE
-Value: /tmp/web-identity-token
-Category: environment variable
-Sensitive: off
-```
+> Ne pas utiliser `AWS_ROLE_ARN` ni `AWS_WEB_IDENTITY_TOKEN_FILE` manuellement —
+> ces variables sont gérées automatiquement par TFC via `TFC_AWS_PROVIDER_AUTH`.
 
 ### Appliquer ce Variable Set au workspace :
 
