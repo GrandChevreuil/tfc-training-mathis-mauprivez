@@ -13,8 +13,9 @@ provider "aws" {
 
 module "lz_s3" {
   source  = "app.terraform.io/tfc-lab-mathis/s3_lz/aws"
-  version = "1.0.0"
+  version = "1.1.0"
 
   name        = "landing-zone-bucket"
   environment = "dev"
+  enable_versioning = true
 }
