@@ -13,4 +13,3 @@ module "lz_s3" {
   name        = "lz-lab7-mathis-bucket"
   environment = "dev"
 }
-# test auto-trigger
