@@ -1,12 +1,4 @@
 terraform {
-  cloud {
-    organization = "tfc-lab-mathis"
-
-    workspaces {
-      name = "lz-dev-cd"
-    }
-  }
-
   required_version = ">= 1.5.0"
 }
 
