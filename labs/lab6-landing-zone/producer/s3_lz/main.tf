@@ -6,3 +6,11 @@ resource "aws_s3_bucket" "lz" {
     owner       = "producer"
   }
 }
+
+resource "aws_s3_bucket_versioning" "lz" {
+  bucket = aws_s3_bucket.lz.id
+
+  versioning_configuration {
+    status = var.enable_versioning ? "Enabled" : "Suspended"
+  }
+}
