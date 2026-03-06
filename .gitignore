@@ -1,11 +1,28 @@
-# Terraform
-.terraform/
-.terraform.lock.hcl
+# Terraform cache & providers (binaries, often hundreds of MB)
+**/.terraform/
+
+# Terraform state files (may contain secrets)
 *.tfstate
 *.tfstate.backup
+*.tfstate.*.backup
+
+# Terraform plan output
+*.tfplan
+*.out
+
+# Terraform variable files (may contain sensitive values)
 *.tfvars
-crash.log
+*.tfvars.json
+
+# Terraform override files
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
+
+# Crash log
+crash.log
+crash.*.log
+
+# .terraform.lock.hcl can be committed, but exclude if preferred
+# .terraform.lock.hcl
