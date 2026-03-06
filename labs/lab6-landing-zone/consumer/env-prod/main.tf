@@ -15,7 +15,7 @@ module "lz_s3" {
   source  = "app.terraform.io/tfc-lab-mathis/s3_lz/aws"
   version = "1.1.0"
 
-  name        = "landing-zone-bucket"
+  name        = "lz-bucket-tfc-mathis"
   environment = "prod"
   enable_versioning = true
 }
