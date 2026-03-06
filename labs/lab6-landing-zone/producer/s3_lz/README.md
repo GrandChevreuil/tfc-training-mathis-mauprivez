@@ -1,0 +1,1 @@
+Résumé du module Producer.
